@@ -9,21 +9,21 @@ export default function SignUp() {
           type="text"
           placeholder="username"
           id="username"
-          className="bg-slate-100 outline-none rounded-md p-3"
+          className="bg-slate-100 outline-none rounded-lg p-3"
         />
         <input
           type="email"
           placeholder="email"
           id="email"
-          className="bg-slate-100 outline-none rounded-md p-3"
+          className="bg-slate-100 outline-none rounded-lg p-3"
         />
         <input
           type="password"
           placeholder="password"
           id="password"
-          className="bg-slate-100 outline-none rounded-md p-3"
+          className="bg-slate-100 outline-none rounded-lg p-3"
         />
-        <button className="bg-slate-700 text-white p-3 rounded-md uppercase hover:opacity-95 disabled:opacity-80">
+        <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
           Sign Up
         </button>
       </form>
