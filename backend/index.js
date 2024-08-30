@@ -2,7 +2,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import mongoose from 'mongoose'
-
+import userRoutes from './routes/user.route.js'
 const app = express()
 
 dotenv.config()
@@ -24,3 +24,11 @@ try {
 app.listen(PORT, () => {
   console.log('Server listening on port', PORT)
 })
+
+// app.get('/', (req, res) => {
+//   res.json({
+//     message: 'Welcome to the API',
+//   })
+// })
+
+app.use('/api/user', userRoutes)
