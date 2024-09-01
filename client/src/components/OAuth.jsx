@@ -17,10 +17,11 @@ export default function OAuth() {
         email: result.user.email,
         photo: result.user.photoURL,
       })
-      const data = res.data
+      console.log(res)
+      const data = await res.data
       dispatch(sigInSuccess(data))
     } catch (error) {
-      console.log('Could not login with google'.error)
+      console.log('Could not login with google', error)
     }
   }
   return (
