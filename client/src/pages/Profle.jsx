@@ -31,7 +31,7 @@ export default function Profle() {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including number of bytes and total number of bytes expected
         const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        console.log(`Upload is ${progress}% done`)
+        // console.log(`Upload is ${progress}% done`)
         setImageProgress(Math.round(progress))
       },
       (error) => {
@@ -46,7 +46,7 @@ export default function Profle() {
     )
   }
 
-  console.log(formData)
+  // console.log(formData)
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
