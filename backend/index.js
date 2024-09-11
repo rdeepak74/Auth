@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import userRoutes from './routes/user.route.js'
 import authRoutes from './routes/auth.route.js'
+import cookieParser from 'cookie-parser'
 const app = express()
 
 dotenv.config()
@@ -11,6 +12,7 @@ dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(cookieParser())
 
 const PORT = process.env.PORT || 4002
 const URI = process.env.MongoDBURI
