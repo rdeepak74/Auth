@@ -19,7 +19,7 @@ export default function OAuth() {
         email: result.user.email,
         photo: result.user.photoURL,
       })
-      console.log(res)
+      // console.log(res)
       const data = await res.data
       dispatch(sigInSuccess(data))
       navigate('/')

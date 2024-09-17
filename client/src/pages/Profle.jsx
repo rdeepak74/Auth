@@ -16,6 +16,7 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  sigOut,
 } from '../redux/user/userSlice'
 export default function Profle() {
   const { currentUser, loading, error } = useSelector((state) => state.user)
@@ -90,6 +91,15 @@ export default function Profle() {
       dispatch(deleteUserFailure(error.response.data))
     }
   }
+
+  const handleSignOut = async () => {
+    try {
+      const res = await axios.get(`api/auth/signout`)
+      dispatch(sigOut())
+    } catch (error) {
+      console.log(error)
+    }
+  }
   // console.log(formData)
   return (
     <div className="p-3 max-w-lg mx-auto">
@@ -155,7 +165,9 @@ export default function Profle() {
         >
           Delete Account
         </span>
-        <span className="text-red-700 cursor-pointer">Sign Out</span>
+        <span onClick={handleSignOut} className="text-red-700 cursor-pointer">
+          Sign Out
+        </span>
       </div>
       <p className="text-red-700 mt-5">
         {error && <span>Something went wrong!!</span>}
