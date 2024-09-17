@@ -13,6 +13,9 @@ import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
 } from '../redux/user/userSlice'
 export default function Profle() {
   const { currentUser, loading, error } = useSelector((state) => state.user)
@@ -76,6 +79,17 @@ export default function Profle() {
     }
   }
 
+  const handleDeleteAccount = async () => {
+    try {
+      dispatch(deleteUserStart())
+      const res = await axios.delete(`api/user/delete/${currentUser._id}`)
+
+      dispatch(deleteUserSuccess(res.data))
+    } catch (error) {
+      console.log(error)
+      dispatch(deleteUserFailure(error.response.data))
+    }
+  }
   // console.log(formData)
   return (
     <div className="p-3 max-w-lg mx-auto">
@@ -135,7 +149,12 @@ export default function Profle() {
         </button>
       </form>
       <div className="flex justify-between mt-4">
-        <span className="text-red-700 cursor-pointer">Delete Account</span>
+        <span
+          onClick={handleDeleteAccount}
+          className="text-red-700 cursor-pointer"
+        >
+          Delete Account
+        </span>
         <span className="text-red-700 cursor-pointer">Sign Out</span>
       </div>
       <p className="text-red-700 mt-5">
